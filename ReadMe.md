@@ -1,7 +1,4 @@
 # Supervisor Monitor
-## _The Last Markdown Editor, Ever_
-
-
 [![Build Status](https://travis-ci.org/naginn)](https://travis-ci.org/supervisor-monitor)
 
 ## Features
