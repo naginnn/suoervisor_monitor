@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="section">
+    <div class="row">
+        <span class="col-10">
+            <h2><strong>Имя</strong>: {{ name }}</h2>
+        </span>
+    </div>
+    <div id="job-data" class="row"></div>
+
+    <span class="col-6">
+        <span style="white-space: pre-line">{{ log }}</span>
+    </span>
+
+</div>
+
+{% endblock %}
+

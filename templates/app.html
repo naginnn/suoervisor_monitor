@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="section">
+    <div class="row">
+
+
+        <span class="col-10">
+            <h2><strong>Имя</strong>: {{ name }}</h2>
+        </span>
+        <span>
+            <button id="start-app-btn" class="btn btn-outline-success btn-sm">Запустить</button>
+            <button id="stop-app-btn" class="btn btn-outline-danger btn-sm">Остановить</button>
+        </span>
+    </div>
+
+
+    <div id="job-data" class="row"></div>
+
+    <span class="col-6">
+            <p class="ellipsify"><strong>Группа</strong>:<br>{{group}}</p>
+            <p><strong>Pid процесса</strong>:<br>{{pid}}</p>
+            <p><strong>Описание</strong>:<br>{{description}}</p>
+        <!--            <p><strong>logfile</strong>:<strong><a href="{{rq_url_prefix}}{{ current_instance }}/apps/{{name}}/logfile" class="nav-link">{{logfile}}</a></strong></p>-->
+            <p><strong>stdout_logfile</strong>:<strong><a
+                    href="{{rq_url_prefix}}{{ current_instance }}/apps/{{name}}/stdout_logfile" class="nav-link">{{stdout_logfile}}</a></strong></p>
+            <p><strong>stderr_logfile</strong>:<strong><a
+                    href="{{rq_url_prefix}}{{ current_instance }}/apps/{{name}}/stderr_logfile" class="nav-link">{{stderr_logfile}}</a></strong></p>
+        </span>
+
+</div>
+
+<script src="{{ url_for('static', path='scripts/app.js') }}" type="text/javascript"></script>
+
+{% endblock %}
+
