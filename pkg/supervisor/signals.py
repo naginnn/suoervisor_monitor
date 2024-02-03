@@ -36,14 +36,14 @@ class SupervisorInfo:
 
     def tail_process_stdout_log(self, name: str):
         try:
-            log = self.__server.supervisor.tailProcessStdoutLog(name)
-            return log, None
+            log = self.__server.supervisor.tailProcessStdoutLog(name, 0, 2000000)
+            return log[0], None
         except Exception as e:
             return None, e.__str__()
 
     def tail_process_stderr_log(self, name: str):
         try:
-            log = self.__server.supervisor.tailProcessStderrLog(name)
-            return log, None
+            log = self.__server.supervisor.tailProcessStderrLog(name, 0, 2000000)
+            return log[0], None
         except Exception as e:
             return None, e.__str__()

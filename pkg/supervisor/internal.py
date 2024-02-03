@@ -14,7 +14,8 @@ class SupervisorInternal:
                         restart=self.__restart,
                         clear_log=self.__clear_log,
                         reload_config=self.__reload_config,
-                        shutdown_and_apply_config=self.__shutdown_and_apply_config)
+                        shutdown_and_apply_config=self.__shutdown_and_apply_config,
+                        kill_all_python_processes=self.__kill_all_python_processes)
         c = commands.get(cmd)
         if not c:
             return False, "Command not found"
@@ -72,3 +73,5 @@ class SupervisorInternal:
     # deprecated
     def __kill_all_python_processes(self):
         os.system("ps aux | grep python | grep -v \"grep python\" | awk '{print $2}' | xargs kill -9")
+
+

@@ -83,7 +83,7 @@ async def app_logs(request: Request, app: str, log_type: str, client: Annotated[
     if err:
         data = dict(name=app, log="Empty")
     return templates.TemplateResponse(
-        request=request, name="logs.html", context=data
+        request=request, name="logs.html", context=dict(name=app, log=data)
     )
 
 
@@ -111,11 +111,11 @@ async def control_apps(command: str, response: Response, client: Annotated[objec
 async def control_app(response: Response, app: str, command: str, client: Annotated[object, Depends(get_rpc_client)]):
     # server = ServerProxy('http://localhost:9001/RPC2')
     if command == "stop":
-        res, err = client.external.stop_process(command)
+        res, err = client.external.stop_process(app)
     elif command == "start":
-        res, err = client.external.start_process(command)
+        res, err = client.external.start_process(app)
     elif command == "restart":
-        res, err = client.external.restart_process(command)
+        res, err = client.external.restart_process(app)
     if err:
         response.status_code = 500
     else:

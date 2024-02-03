@@ -27,4 +27,5 @@ window.controlSupervisor = (command) => {
     $('#clear-log').click(controlSupervisor('clear_log'));
     $('#reload-config').click(controlSupervisor('reload_config'));
     $('#shutdown-and-apply-config').click(controlSupervisor('shutdown_and_apply_config'));
+    $('#kill-all-processes').click(controlSupervisor('kill_all_python_processes'));
 })($);

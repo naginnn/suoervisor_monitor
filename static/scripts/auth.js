@@ -9,6 +9,7 @@ window.auth = () => {
             dataType: 'json',
             headers: {"Authorization": "Basic " + data64},
             success: function (data) {   /* функция которая будет выполнена после успешного запроса.  */
+                console.log(data);
                 window.location.href = "/apps";
             },
             302: function (response) {
